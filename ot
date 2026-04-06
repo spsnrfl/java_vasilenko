@@ -1,0 +1,21 @@
+public class OperatorsTwo {
+    public static void main(String[] args) {
+        String text = "hello";
+        Object obj = 123; // число в объекте
+        // обычная проверка
+        if (text instanceof String) {
+            System.out.println("text - это действительно string");
+        }
+        // проверка через object 
+        if (obj instanceof Integer) {
+            System.out.println("obj содержит целое число");
+        }
+        // случай с null 
+        String nullStr = null;
+        if (nullStr instanceof String) {
+            System.out.println("Это не выполнится");
+        } else {
+            System.out.println("null instanceof string всегда дает false");
+        }
+    }
+}
