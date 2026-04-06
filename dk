@@ -1,0 +1,29 @@
+/**
+ * Документирование кода в Java.
+ * Выполнен на практике для понимания комментариев в коде.
+ * * @author София
+ * @version 1.0
+ * @see <a href="https://github.com/spsnrfl/java_vasilenko/tree/main"/a>
+ */
+public class Practice {
+
+    /**
+     * Точка входа в программу.
+     * Демонстрирует вывод сообщения в консоль.
+     * * @param args аргументы командной строки (не используются)
+     */
+    public static void main(String[] args) {
+        System.out.println("Проверка документирования");
+    }
+
+    /**
+     * Метод для вычисления суммы двух целых чисел.
+     * * @param a первое слагаемое
+     * @param b второе слагаемое
+     * @return сумма чисел a и b
+     * @throws IllegalArgumentException если параметры некорректны (пример тега)
+     */
+    public int sum(int a, int b) {
+        return a + b;
+    }
+}
