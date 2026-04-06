@@ -1,0 +1,11 @@
+public class TypeInferenceExample {
+    public static void main(String[] args) {
+        var age = 21; // компилятор понимает что это int
+        var name = "София"; // компилятор понимает что это string
+        var temperature = 36.6;  // компилятор понимает что это double
+        var messageBuilder = new StringBuilder("Привет, "); //полезность с длинными названиями классов
+        messageBuilder.append(name);
+
+        System.out.println(messageBuilder.toString() + "! Тебе " + age + " лет.");
+    }
+}
