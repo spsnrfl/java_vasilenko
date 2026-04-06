@@ -1,0 +1,5 @@
+public class UnicodeName {
+    public static void main(String[] args) {
+        System.out.println("\u0421\u043e\u0444\u0438\u044f");
+    }
+}
