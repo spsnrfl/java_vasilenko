@@ -1,0 +1,12 @@
+public class StringOverload {
+    public static void main(String[] args) {
+        // пример 1 числа перед строкой
+        System.out.println(5 + 5 + " - это десять");
+
+        // пример 2 строка перед числами
+        System.out.println("Результат: " + 5 + 5);
+
+        // пример 3 сспользование скобок для изменения приоритета
+        System.out.println("Результат со скобками: " + (5 + 5));
+    }
+}
