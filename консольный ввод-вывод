@@ -1,10 +1,17 @@
 import java.util.Scanner;
+import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in); 
-        System.out.print("Введите Ваше имя: ");
-        String name = scan.nextLine();
+        try {
+            System.out.println("Нажмите любую клавишу Enter, чтобы начать");
+            int x = System.in.read();
+        } catch (IOException e) {
+            System.err.println("Ошибка ввода-вывода!");
+        }
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите имя: ");
+        String name = scan.next();
         System.out.println("Привет, " + name);
     }
 }
