@@ -1,0 +1,20 @@
+public class NarrowingConversion {
+    public static void main(String[] args) {
+        // пример 1 потеря дробной части
+        double pi = 3.14159;
+        int truncatedPi = (int) pi;
+
+        // пример 2. уменьшение разрядности
+        long bigNumber = 500L;
+        short smallNumber = (short) bigNumber;
+
+        // пример 3 переполнение
+        int sourceInt = 130;
+        byte resultByte = (byte) sourceInt;
+
+        // Вывод результатов
+        System.out.println("1. double 3.14159 -> int: " + truncatedPi);
+        System.out.println("2. long 500 -> short: " + smallNumber);
+        System.out.println("3. int 130 -> byte (переполнение!): " + resultByte);
+    }
+}
