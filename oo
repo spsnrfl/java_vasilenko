@@ -1,0 +1,37 @@
+public class OperatorsOne {
+    public static void main(String[] args) {
+        // 1 группировка () и массивы []
+        int[] numbers = {1, 2, 3};
+        int resultGroup = (5 + 2) * 2; // сначала скобки
+
+        // 2 инкремент/еекремент (++ --) и отрицание (!)
+        int x = 10;
+        System.out.println("Постфиксный: " + x++);
+        System.out.println("Префиксный: " + ++x);
+        boolean isJavaCool = true;
+        System.out.println("Отрицание: " + !isJavaCool);
+
+        // 3 мультипликативные (* / %) и аддитивные (+ -)
+        int math = 10 + 20 / 2; // сначала деление
+        int ost = 10 % 3;       // остаток от деления
+
+        // 4 сравнение (== != > < >= <=)
+        boolean compare = (10 >= 5) && (5 != 0);
+
+        // 5 логические и(&&) или(||)
+        boolean logic = (true || false) && true;
+
+        // 6 тернарный оператор (?:)
+        int age = 18;
+        String status = (age >= 18) ? "Взрослый" : "Ребенок";
+
+        // 7 операторы со строками (+ и +=)
+        String name = "Хьюс";
+        name += "тон"; // конкатенация
+        System.out.println(name + " у нас " + 100 + "% проблемы");
+
+        // 8 присваивание (=, +=, *= и т.д.)
+        int a = 5;
+        a *= 2;
+    }
+}
