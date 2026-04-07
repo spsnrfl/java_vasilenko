@@ -1,0 +1,36 @@
+/**
+ * практика 1
+ * перечисление с инициализацией
+*/
+enum Priority {
+    LOW(1), MEDIUM(5), HIGH(10);
+    private final int level;
+    Priority(int level) {
+        this.level = level;
+    }
+    public int getLevel() {
+        return level;
+    }
+}
+
+/**
+ * практика 2
+ * перечисление со своим методом
+ */
+enum Season {
+    WINTER, SPRING, SUMMER, AUTUMN;
+    public void welcome() {
+        System.out.println("\nпривет! сейчас время года: " + this.name());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Priority myPriority = Priority.HIGH;
+        System.out.println("выбран приоритет: " + myPriority);
+        System.out.println("его числовое значение: " + myPriority.getLevel());
+
+        Season currentSeason = Season.SPRING;
+        currentSeason.welcome();
+    }
+}
