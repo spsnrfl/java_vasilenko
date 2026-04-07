@@ -1,0 +1,74 @@
+/**
+ * уровни доступа и типы переменных
+ */
+class BaseClass {
+    // поля экземпляра у каждого объекта свое
+    private String privateInfo = "PRIVATE: Видно только в BaseClass";
+    String defaultInfo = "DEFAULT: Видно в этом же пакете";
+    protected String protectedInfo = "PROTECTED: Видно в пакете и наследникам";
+    public String publicInfo = "PUBLIC: Видно всем";
+
+    // поле класса static, общее для всех объектов
+    public static int objectCount = 0;
+
+    // константа
+    public final String GRADE = "A+";
+
+    /**
+     * конструктор срабатывает при создании каждого объекта
+     */
+    public BaseClass() {
+        objectCount++; // увеличение общего счетчика при создании нового объекта
+    }
+
+    /**
+     * публичный метод для доступа к private полю
+     */
+    public String getPrivateInfo() {
+        return privateInfo;
+    }
+}
+
+/**
+ * класс наследник демонстрирует видимость protected
+ */
+class ChildClass extends BaseClass {
+    public void showInheritedFields() {
+        System.out.println("Проверка внутри наследника");
+        // System.out.println(privateInfo);   // ошибка private не виден даже сыну
+        System.out.println(defaultInfo);
+        System.out.println(protectedInfo);
+        System.out.println(publicInfo);
+    }
+}
+
+/**
+ * точка входа
+ */
+public class Main {
+    public static void main(String[] args) {
+        // первый объект
+        BaseClass obj1 = new BaseClass();
+        // второй объект
+        BaseClass obj2 = new BaseClass();
+
+        System.out.println("Проверка Static поля");
+        System.out.println("Создано объектов: " + BaseClass.objectCount);
+
+        System.out.println("\nПроверка доступа извне");
+        // System.out.println(obj1.privateInfo); // ошибка нет доступа
+        System.out.println("Через геттер: " + obj1.getPrivateInfo()); // работа через метод
+
+        System.out.println(obj1.defaultInfo);
+        System.out.println(obj1.protectedInfo);
+        System.out.println(obj1.publicInfo);
+
+        // проверка константы
+        // obj1.GRADE = "B"; // ошибка нельзя изменить конечное поле
+        System.out.println("\nКонстанта GRADE: " + obj1.GRADE);
+
+        // проверка наследника
+        ChildClass child = new ChildClass();
+        child.showInheritedFields();
+    }
+}
