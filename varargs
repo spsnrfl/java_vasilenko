@@ -1,0 +1,30 @@
+public class Varargs {
+
+    // 1. целые числа
+    public void display(int... numbers) {
+        System.out.println("метод с int, количество: " + numbers.length);
+        for (int n : numbers) System.out.print(n + " ");
+        System.out.println();
+    }
+
+    // 2. строки
+    public void display(String... strings) {
+        System.out.println("метод со string, количество: " + strings.length);
+        for (String s : strings) System.out.print(s + " ");
+        System.out.println();
+    }
+
+    // 3. обычный параметр + перегрузка
+    public void display(boolean flag, int... numbers) {
+        System.out.println("метод с boolean и int, флаг: " + flag);
+    }
+
+    public static void main(String[] args) {
+        Varargs demo = new Varargs();
+
+        demo.display(1, 2, 3, 4);
+        demo.display("A", "B", "C");
+        demo.display(true, 10, 20);
+        //demo.display(); // ошибка неопределенности
+    }
+}
