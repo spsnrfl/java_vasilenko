@@ -1,0 +1,63 @@
+/**
+ * суперкласс/родитель
+ */
+class Calculator {
+    // перегрузка, один метод sum с разным набором данных
+    // вариант 1. сложение двух целых чисел
+    public int sum(int a, int b) {
+        return a + b;
+    }
+    // вариант 2. сложение трех целых чисел
+    public int sum(int a, int b, int c) {
+        return a + b + c;
+    }
+    // вариант 3. сложение дробных чисел
+    public double sum(double a, double b) {
+        return a + b;
+    }
+
+    /**
+     * переопределение
+     */
+    public void displayInfo() {
+        System.out.println("базовый калькулятор");
+    }
+}
+
+/**
+ * подкласс/наследник
+ */
+class AdvancedCalculator extends Calculator {
+    // для проверки работы наследника
+    public double square(double a) {
+        return a * a;
+    }
+    // переопредление, полностью меняем поведение суперкласса
+    @Override
+    public void displayInfo() {
+        System.out.println("калькулятор с поддержкой наследования");
+    }
+}
+
+/**
+ * главный класс
+ */
+public class Main {
+    public static void main(String[] args) {
+        AdvancedCalculator calc = new AdvancedCalculator();
+        // родитель. перегрузка, вызов разных вариантов sum
+        System.out.println("сумма двух типа int: " + calc.sum(2, 4));
+        System.out.println("сумма трех типа nt: " + calc.sum(8, 16, 32));
+        System.out.println("сумма типа double: " + calc.sum(3.14, 2.71));
+        /**
+        // наследник, вызов перегруженных методов от родителя
+        int resInt = calc.sum(64, 128);
+        double resDouble = calc.sum(30.04, 28.02);
+        // результаты в консоли
+        System.out.println("результат сложения типа int: " + resInt);
+        System.out.println("результат сложения типа double: " + resDouble);
+        // переопределение
+        calc.displayInfo(); // из наследника, а не родителя
+         */
+    }
+}
