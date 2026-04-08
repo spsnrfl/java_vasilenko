@@ -1,0 +1,62 @@
+// практика 1. пример с final методом
+class Computer {
+    public final void startOS() {
+        System.out.println("загрузка операционной системы");
+    }
+    public void installApp() {
+        System.out.println("установка обычного приложения");
+    }
+}
+
+class Laptop extends Computer {
+    // переопределение обычного метод
+    @Override
+    public void installApp() {
+        System.out.println("установка приложения");
+    }
+
+    // попытка переопределения final метода. ошибка
+    /*
+    @Override
+    public void startOS() {
+        System.out.println("неудача");
+    }
+    */
+}
+
+// практика 2. пример с final классом
+final class DatabaseConnector {
+    public void connect() {
+        System.out.println("подключение установлено");
+    }
+}
+
+// попытка наследования от final класса. ошибка
+/*
+class MyConnector extends DatabaseConnector {
+}
+*/
+
+// композиция, то есть используем объект внутри, а не наследуем
+class DataManager {
+    private DatabaseConnector connector = new DatabaseConnector();
+
+    public void work() {
+        connector.connect(); // Это работает!
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Тест Final Метода");
+        Laptop myLaptop = new Laptop();
+        myLaptop.startOS();   // вызов родителя
+        myLaptop.installApp(); // вызов метода
+
+        System.out.println("\nТест Final Класса");
+        DataManager manager = new DataManager();
+        manager.work();
+
+        System.out.println("\nуспех!");
+    }
+}
