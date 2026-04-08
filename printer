@@ -1,0 +1,29 @@
+class Printer {
+    // вариант 1. строка
+    void print(String text) {
+        System.out.println("Текст: " + text);
+    }
+
+    // вариант 2. целое число
+    void print(int number) {
+        System.out.println("Число: " + number);
+    }
+
+    // вариант 3. текст несколько раз
+    void print(String text, int count) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(text + " ");
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Printer p = new Printer();
+
+        p.print("Нихао");
+        p.print(349304750);
+        p.print("Андромеда", 5);
+    }
+}
