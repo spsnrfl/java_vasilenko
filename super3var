@@ -1,0 +1,40 @@
+class Device {
+    String brand = "Universal Brand"; // поле суперкласса
+    // конструктор суперкласса
+    public Device(String brand) {
+        this.brand = brand;
+        System.out.println("конструктор Device вызван");
+    }
+    void powerOn() {
+        System.out.println("\nустройство включается");
+    }
+}
+
+class Smartphone extends Device {
+    String brand = "SmartBrand"; // поле подкласса
+    public Smartphone(String model) {
+        // вариант 1 вызов конструктора родителя
+        super(model);
+        System.out.println("конструктор Smartphone вызван");
+    }
+    
+    @Override
+    void powerOn() {
+        // вариант 2 доступ к методу родителя
+        super.powerOn();
+        System.out.println("экран телефона включается");
+    }
+    void showBrands() {
+        // вариант 3 доступ к полю родителя
+        System.out.println("\nбренд подкласса: " + this.brand);
+        System.out.println("бренд суперкласса: " + super.brand);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Smartphone myPhone = new Smartphone("Apple");
+        myPhone.powerOn();
+        myPhone.showBrands();
+    }
+}
