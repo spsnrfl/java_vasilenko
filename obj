@@ -1,0 +1,46 @@
+import java.util.Objects;
+
+class Ring {
+    String material;
+    double weight;
+    int stoneSize;
+
+    public Ring(String material, double weight, int stoneSize) {
+        this.material = material;
+        this.weight = weight;
+        this.stoneSize = stoneSize;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ring otherRing = (Ring) o;
+        return Double.compare(weight, otherRing.weight) == 0 &&
+                stoneSize == otherRing.stoneSize &&
+                Objects.equals(material, otherRing.material);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // два одинаковых кольца
+        Ring ring1 = new Ring("платина", 2.5, 1);
+        Ring ring2 = new Ring("платина", 2.5, 1);
+        // другое кольцо
+        Ring ring3 = new Ring("серебро", 1.8, 0);
+
+        System.out.println("сравнение через адреса в памяти:");
+        System.out.println(ring1 == ring2);
+
+        System.out.println("\nсравнение по свойствам:");
+        if (ring1.equals(ring2)) {
+            System.out.println("кольца 1 и 2 одинаковые:) ");
+        } else {
+            System.out.println("кольца разные:(");
+        }
+
+        System.out.println("\nсравнение кольца 1 и кольца 3:");
+        System.out.println(ring1.equals(ring3)); 
+    }
+}
