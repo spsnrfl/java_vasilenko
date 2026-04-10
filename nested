@@ -1,0 +1,45 @@
+вложение 
+interface Messenger {
+    void sendMessage(String text);
+
+    class Validator {
+        public static boolean isValid(String text) {
+            return text != null && !text.isEmpty();
+        }
+        public void printInfo() {
+            System.out.println("валидатор готов к работе.");
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // способы вызова метода вложенного класса:
+        // если статический вызываем через имя интерфейса и класса
+        boolean result = Messenger.Validator.isValid("хай");
+        System.out.println("результат: " + result);
+        // если не статический создаем объект вложенного классаъ
+        Messenger.Validator myVal = new Messenger.Validator();
+        myVal.printInfo();
+    }
+}
+
+
+
+вызов
+interface DBConfig {
+    String URL = "jdbc:mysql://localhost:3306/db";
+
+    class Helper {
+        public void showUrl() {
+            System.out.println("Connecting to: " + URL);
+        }
+    }
+}
+
+public class Main1 {
+    public static void main(String[] args) {
+        DBConfig.Helper helper = new DBConfig.Helper();
+        helper.showUrl();
+    }
+}
