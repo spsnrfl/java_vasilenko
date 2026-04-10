@@ -1,0 +1,22 @@
+interface Radio {
+    default void start() {
+        System.out.println("радио включено");
+    }
+}
+
+interface Engine {
+    default void start() {
+        System.out.println("двигатель работает");
+    }
+}
+
+class Car implements Radio, Engine {
+
+    @Override
+    public void start() {
+        // 1. своя логика
+        System.out.println("машина готова идти");
+        // 2. вызов конкретного метода 
+        Engine.super.start();
+    }
+}
