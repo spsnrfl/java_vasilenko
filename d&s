@@ -1,0 +1,32 @@
+interface SmartDevice {
+    // абстрактный метод
+    void turnOn();
+
+    // default метод
+    default void reset() {
+        System.out.println("сброс настроек по умолчанию");
+    }
+
+    // static метод
+    static void showVersion() {
+        System.out.println("версия прошивки: 1.0.4");
+    }
+}
+
+class Lamp implements SmartDevice {
+    @Override
+    public void turnOn() {
+        System.out.println("лампочка горит");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Lamp myLamp = new Lamp();
+        // 1. вызов обычного и default методов через объект
+        myLamp.turnOn();
+        myLamp.reset();
+        // 2. вызов статического метода только через имя интерфейса
+        SmartDevice.showVersion();
+    }
+}
