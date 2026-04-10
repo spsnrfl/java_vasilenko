@@ -1,0 +1,38 @@
+import java.util.Objects;
+
+class Necklace {
+    private String secretCode = "silver-925"; // private поле
+    public String material = "серебро";
+
+    // внутренний класс
+    class Gem {
+        private String gemType = "фианит";
+
+        public void showSecrets() {
+            // практика 2. внутр класс видит private поле внешн
+            System.out.println("внутренний класс видит секрет ожерелья: " + secretCode);
+            System.out.println("материал ожерелья: " + material);
+        }
+    }
+
+    // практика 3. внешн класс видит private поля внутрен
+    public void checkGem() {
+        Gem g = new Gem();
+        System.out.println("внешний класс проверяет камень: " + g.gemType);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // объект внешнего класса
+        Necklace myNecklace = new Necklace();
+        // объект внутр класса через объект внешнего
+        Necklace.Gem myGem = myNecklace.new Gem();
+
+        System.out.println("тест доступа изнутри");
+        myGem.showSecrets();
+
+        System.out.println("\nтест доступа снаружи");
+        myNecklace.checkGem();
+    }
+}
