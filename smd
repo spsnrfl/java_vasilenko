@@ -1,0 +1,50 @@
+public class StringMethodsDemo {
+    public static void main(String[] args) {
+        // исходная строка специально с пробелами и разным регистром
+        String original = "   Java Programming is Powerful!   ";
+        System.out.println("Исходная строка: '" + original + "'\n");
+
+        // 1. length() возвращает количество символов в строке
+        int len = original.length();
+        System.out.println("1. Длина всей строки (с пробелами): " + len);
+
+        // 2. trim() удаляет пробелы в начале и в конце строки
+        String trimmed = original.trim();
+        System.out.println("2. После trim(): '" + trimmed + "'");
+
+        // 3. toLowerCase() переводит всю строку в нижний регистр
+        String lower = trimmed.toLowerCase();
+        System.out.println("3. В нижнем регистре: " + lower);
+
+        // 4. contains(CharSequence) проверяет, содержит ли строка указанную последовательность
+        boolean hasJava = trimmed.contains("Java");
+        System.out.println("4. Содержит слово 'Java'?: " + hasJava);
+
+        // 5. substring(int beginIndex, int endIndex) извлекает подстроку с индекса по индекс
+        // Извлечем слово "Java" (индексы 0, 1, 2, 3)
+        String sub = trimmed.substring(0, 4);
+        System.out.println("5. Подстрока (0-4): " + sub);
+
+        // 6. replace(old, new) заменяет все вхождения старой строки на новую
+        String replaced = trimmed.replace("Powerful", "Awesome");
+        System.out.println("6. После замены слова: " + replaced);
+
+        // 7. charAt(int index) возвращает символ, стоящий на указанной позиции
+        char firstChar = trimmed.charAt(0);
+        System.out.println("7. Первый символ после trim: " + firstChar);
+
+        // 8. indexOf(String) возвращает индекс первого вхождения подстроки
+        int index = trimmed.indexOf("Programming");
+        System.out.println("8. Индекс начала слова 'Programming': " + index);
+
+        // 9. equalsIgnoreCase(String) сравнивает строки, игнорируя регистр (большие/маленькие буквы)
+        boolean equal = trimmed.equalsIgnoreCase("java programming is powerful!");
+        System.out.println("9. Совпадает без учета регистра?: " + equal);
+
+        // 10. split(String regex) разбивает строку на массив строк по разделителю (в данном случае пробел)
+        String[] words = trimmed.split(" ");
+        System.out.print("10. Разделение на слова: ");
+        for (String word : words) {
+            System.out.print("[" + word + "] ");
+        }
+        System.out.println();
