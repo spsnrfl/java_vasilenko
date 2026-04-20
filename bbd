@@ -1,0 +1,46 @@
+public class BuilderBufferDemo {
+    public static void main(String[] args) {
+        // создаем объект с начальным текстом
+        StringBuilder sb = new StringBuilder("Java");
+
+        // 1. append(String)  текст в конец текущей последовательности
+        sb.append(" is Awesome");
+        System.out.println("1. Append: " + sb);
+
+        // 2. insert(int offset, String) вставляет текст в указанную позицию
+        sb.insert(4, " Language");
+        System.out.println("2. Insert: " + sb);
+
+        // 3. delete(int start, int end) удаляет символы в диапазоне индексов
+        sb.delete(4, 13); // удаляем " Language"
+        System.out.println("3. Delete: " + sb);
+
+        // 4. replace(int start, int end, String) заменяет кусок текста на новый
+        sb.replace(8, 15, "Powerful");
+        System.out.println("4. Replace: " + sb);
+
+        // 5. reverse() меняет порядок символов на обратный
+        sb.reverse();
+        System.out.println("5. Reverse: " + sb);
+        sb.reverse(); // вкрнем обратно для дальнейших тестов
+
+        // 6. setCharAt(int index, char) заменяет символ в конкретной позиции
+        sb.setCharAt(0, 'j');
+        System.out.println("6. setCharAt: " + sb);
+
+        // 7. substring(int start, int end) возвращает новую строку (String) из диапазона
+        String sub = sb.substring(0, 4);
+        System.out.println("7. Substring: " + sub);
+
+        // 8. length() возвращает текущую длину
+        System.out.println("8. Длина: " + sb.length());
+
+        // 9. capacity() возвращает объем буфера, всегда больше или равен length()
+        System.out.println("9. Capacity: " + sb.capacity());
+
+        // 10. setLength(int newLength) принудительно меняет длину строки
+        // если новая длина меньше то строка обрежется
+        sb.setLength(4);
+        System.out.println("10. setLength (обрезали до 4): " + sb);
+    }
+}
