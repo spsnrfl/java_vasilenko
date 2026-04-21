@@ -1,0 +1,21 @@
+public class NestedTryDemo {
+    public static void main(String[] args) {
+        try { // внешний блок
+            System.out.println("внешний блок начинает");
+
+            try { // внутренний
+                int[] arr = {1};
+                System.out.println(arr[5]); // ошибка
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("внутренний catch поймал выход за границы массива");
+            }
+
+            // код внешнего блока продолжится тк внутренний перехватил ошибку
+            int result = 10 / 2;
+            System.out.println("внешний блок: результат " + result);
+
+        } catch (Exception e) {
+            System.out.println("внешний catch: сюда попадем, только если упадет что-то еще");
+        }
+    }
+}
