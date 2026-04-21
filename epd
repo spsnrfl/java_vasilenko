@@ -1,0 +1,25 @@
+public class ExceptionPropagationDemo {
+
+    public static void main(String[] args) {
+        System.out.println("шаг 1: попробуем поделить на ноль");
+
+        // это исключение будет перехвачено
+        try {
+            int result = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("перехвачено! арифметическая ошибка. программа идет дальше");
+        }
+
+        System.out.println("\nшаг 2: вызываем метод, который выбросит ошибку без обработки");
+
+        // это исключение приведет к аварийной остановки
+        // вызовем метод, который бросает ошибку, но не оборачивает его в try-catch
+        causeCrash();
+        System.out.println("этот текст мы никогда не увидим, так как программа упадет выше");
+    }
+
+    static void causeCrash() {
+        String str = null;
+        System.out.println(str.length()); // генерирация NullPointerException
+    }
+}
