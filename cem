@@ -1,0 +1,37 @@
+// свой класс исключения
+class InvalidAgeException extends Exception {
+
+    // конструктор по умолчанию
+    public InvalidAgeException() {
+        super("введен некорректный возраст.");
+    }
+
+    // конструктор принимающий только текстовое сообщение
+    public InvalidAgeException(String message) {
+        super(message);
+    }
+
+    // конструктор принимающий сообщение и другое исключение
+    public InvalidAgeException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
+// демонстрация использования
+public class CustomExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            checkAge(-5);
+        } catch (InvalidAgeException e) {
+            System.out.println("поймано собственное исключение: " + e.getMessage());
+        }
+    }
+
+    static void checkAge(int age) throws InvalidAgeException {
+        if (age < 0 || age > 150) {
+            // генерация исключения вручную с помощью throw
+            throw new InvalidAgeException("возраст " + age + " недопустим для регистрации");
+        }
+        System.out.println("возраст принят");
+    }
+}
