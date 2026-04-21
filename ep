@@ -1,0 +1,70 @@
+public class ExceptionsPractice {
+
+    public static void main(String[] args) {
+        System.out.println("старт демонстрации исключений\n");
+
+        demoArithmeticException();
+        demoArrayIndexOutOfBoundsException();
+        demoIllegalArgumentException();
+        demoClassCastException();
+        demoNullPointerException();
+
+        System.out.println("\n программа успешно завершила работу ");
+    }
+
+    // ArithmeticException деление на ноль
+    static void demoArithmeticException() {
+        try {
+            int a = 10, b = 0;
+            int result = a / b;
+        } catch (ArithmeticException e) {
+            System.out.println(" ArithmeticException: попытка деления на ноль успешно поймана");
+        }
+    }
+
+    // ArrayIndexOutOfBoundsException выход за границы массива
+    static void demoArrayIndexOutOfBoundsException() {
+        try {
+            int[] arr = {1, 2, 3};
+            int value = arr[5]; // индекса 5 не существует
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(" ArrayIndexOutOfBoundsException: обращение к несуществующему индексу массива");
+        }
+    }
+
+    // IllegalArgumentException некорректный аргумент
+    static void demoIllegalArgumentException() {
+        try {
+            printAge(-10); // метод не принимает отрицательные числа
+        } catch (IllegalArgumentException e) {
+            System.out.println(" IllegalArgumentException: передан недопустимый аргумент: " + e.getMessage());
+        }
+    }
+
+    static void printAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("возраст не может быть меньше 0");
+        }
+        System.out.println("Возраст: " + age);
+    }
+
+    // ClassCastException ошибка приведения типов
+    static void demoClassCastException() {
+        try {
+            Object obj = "Я просто строка";
+            Integer num = (Integer) obj; // нельзя привести String к Integer
+        } catch (ClassCastException e) {
+            System.out.println(" ClassCastException: ошибка приведения типов ");
+        }
+    }
+
+    // NullPointerException null-ссылка
+    static void demoNullPointerException() {
+        try {
+            String str = null;
+            int length = str.length(); // вызов метода у null
+        } catch (NullPointerException e) {
+            System.out.println(" NullPointerException: попытка вызвать метод у объекта, который равен null");
+        }
+    }
+}
